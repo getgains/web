@@ -1,0 +1,17 @@
+/**
+* Mixins
+* usage - @include opacity(0.5);
+*/
+
+@mixin background-cover() {
+    background-size: cover;
+    background-position: center center;
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -ms-behavior: url("backgroundsize.min.htc");
+}
+
+@mixin font-smoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

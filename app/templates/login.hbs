@@ -1,0 +1,12 @@
+<h1>Login</h1>
+{{#if errorMessage}}
+    <div class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+{{/if}}
+<form class="{{if isProcessing 'is--processing'}}" {{action "authenticate" on="submit"}}>
+    {{form-field id="identification" type="email" label="Email" value=identification}}
+    {{form-field type="password" label="Password" value=password}}
+    {{form-field type="submit" value=Submit}}
+</form>
+

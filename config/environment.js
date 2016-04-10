@@ -5,6 +5,7 @@ module.exports = function(environment) {
         modulePrefix: 'gains',
         environment: environment,
         baseURL: '/',
+        apiBaseUrl: '/',
         locationType: 'auto',
         EmberENV: {
             FEATURES: {
@@ -17,6 +18,19 @@ module.exports = function(environment) {
             // Here you can pass flags/options to your application instance
             // when it is created
         }
+    };
+
+    ENV['ember-simple-auth'] = {
+        authorizer: 'authorizer:token'
+    };
+
+    ENV['ember-simple-auth-token'] = {
+        refreshAccessTokens: true,
+        timeFactor: 1000,
+        refreshLeeway: 300,
+        serverTokenEndpoint: ENV.apiBaseUrl + '/api/auth/login',
+        serverTokenRefreshEndpoint: ENV.apiBaseUrl + '/api/auth/token-refresh',
+        identificationField: 'email'
     };
 
     if (environment === 'development') {

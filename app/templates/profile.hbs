@@ -1,0 +1,36 @@
+{{#if isEdit}}
+    <h1>Edit Profile</h1>
+    <form {{action "save" on="submit"}}>
+        {{form-field label="First Name" type="text" value=session.content.user.firstname}}
+        {{form-field label="Last Name" type="text" value=session.content.user.lastname}}
+        {{form-field label="Email" type="email" value=session.content.user.email}}
+        {{form-field label="Password" type="password" value=password}}
+        {{form-field label="Password Confirm" type="password" value=confirmPassword}}
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" {{action "cancel"}}>Cancel</button>
+            {{input type="submit" class="btn btn-danger" value="Submit"}}
+        </div>
+    </form>
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+{{else}}
+    <div class="user-profile">
+        <h1>Profile</h1>
+        <div class="user-profile-photo">
+            {{#link-to "profile.photo"}}
+                <img {{bind-attr src=session.content.user.photo}}>
+            {{/link-to}}
+        </div>
+        <div class="user-profile-info">
+            <p>First Name: {{session.content.user.firstname}}</p>
+            <p>Last Name: {{session.content.user.lastname}}</p>
+            <p>Email: {{session.content.user.email}}</p>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" {{action "edit"}}>Edit Profile</button>
+{{/if}}

@@ -1,0 +1,5 @@
+<h2>Create new workout</h2>
+<form class="{{if isProcessing 'is--processing'}}" {{action "create" on="submit"}}>
+    {{form-field label="Name" type="text" value=name}} 
+    {{form-field type="submit" value="Submit"}} 
+</form>

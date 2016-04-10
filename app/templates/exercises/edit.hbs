@@ -1,0 +1,27 @@
+<h1>{{model.name}}</h1>
+
+{{#if isEdit}}
+    <form class="{{if isProcessing 'is--processing'}}" {{action "save" on="submit"}}>
+        {{form-field label="Name" type="text" value=model.name}}
+        {{form-field label="Category" type="select" value=model.category}}
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <button type="button" {{action "cancel"}}>Cancel</button>
+            {{input type="submit" value="Submit"}}
+        </div>
+    </form>
+
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+{{else}}
+    <div class="exercise-edit">
+        <div>{{model.name}}</div>
+        <div>{{model.category}}</div>
+        <div>{{model.createdAt}}</div>
+        {{#if userExercise}}
+            <button class="btn btn-primary" {{action "edit"}}>Edit Recipe</button>
+        {{/if}}
+    </div>
+{{/if}}

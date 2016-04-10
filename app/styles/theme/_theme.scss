@@ -1,0 +1,33 @@
+/**
+ * defaults
+ */
+
+@lost flexbox flex;
+* {
+    outline: 0 !important;
+    &:focus,
+    &:active {
+        outline: 0 !important;
+    }
+}
+
+
+/**
+ * base
+ */
+
+html {
+    font-size: responsive 13px 16px;
+    font-range: 420px 1280px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: lighten($orangeLight, 50);
+    color: $greyMedium;
+    font-family: $kanit;
+}

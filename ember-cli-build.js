@@ -1,7 +1,6 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var autoprefixer = require('autoprefixer');
 
 module.exports = function(defaults) {
     var app = new EmberApp(defaults, {
@@ -17,6 +16,10 @@ module.exports = function(defaults) {
                             'last 2 versions'
                         ]
                     }
+                }, {
+                    module: require('rucksack-css')
+                }, {
+                    module: require('lost')
                 }]
             }],
             extension: 'scss'

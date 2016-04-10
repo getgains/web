@@ -1,3 +1,23 @@
-<nav>
-
+<nav class="navbar">
+    {{#link-to 'index' class="navbar-brand"}}Gains{{/link-to}}
+    <ul class="nav navbar-nav">
+        <li class="nav-item">{{#link-to 'exercises'}}Exercises{{/link-to}}</li>
+        <li class="nav-item">{{#link-to 'workouts'}}Workouts{{/link-to}}</li>
+    </ul>
+    <ul class="nav navbar-nav pull-xs-right">
+        <li class="nav-item">
+            {{#if session.isAuthenticated}}
+                <a class='link' {{action 'invalidateSession'}}>Logout</a>
+            {{else}}
+                {{#link-to 'login'}}Login{{/link-to}}
+            {{/if}}
+        </li>
+        <li class="nav-item">
+            {{#if session.isAuthenticated}}
+                {{#link-to 'profile'}}Profile{{/link-to}}
+            {{else}}
+                {{#link-to 'register'}}Register{{/link-to}}
+            {{/if}}
+        </li>
+    </ul>
 </nav>

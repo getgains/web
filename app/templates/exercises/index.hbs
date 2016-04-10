@@ -1,0 +1,31 @@
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {{#each model as |exercises|}}
+                <tr class="table-striped">
+                    <td>
+                        {{exercises.name}}
+                    </td>
+                    <td>
+                        {{#link-to 'exercises.edit' exercises tagName="button" }}Edit{{/link-to}}
+                    </td>
+                    <td>
+                        <button {{action 'delete' exercises.id}}>Delete</button>
+                    </td>
+                </tr>
+                {{else}}
+                    <tr class="table-striped">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{#link-to 'exercises.create' tagName="button" }}Create{{/link-to}}
+

@@ -1,0 +1,22 @@
+a.btn,
+button,
+input[type="submit"] {
+    cursor: pointer;
+    padding: 15px 45px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    background-color: $pinkLight;
+    color: $yellow;
+    box-shadow: 0 6px $pink;
+    border: none;
+    &:hover {
+        box-shadow: 0 4px $pink;
+        top: 2px;
+    }
+    &:active {
+        box-shadow: 0 0 $pink;
+        top: 6px;
+    }
+}
