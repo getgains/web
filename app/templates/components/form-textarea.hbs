@@ -1,0 +1,7 @@
+{{#if label}}
+    <label {{bind-attr for=label}}>{{label}}</label>
+{{/if}}
+{{textarea value=notes placeholder=placeholder maxlength=maxlength keyup="update"}}
+{{#if maxlength}}
+	<span class="counter">characters remaining: {{charatersRemaining}}</span>
+{{/if}}

@@ -2,7 +2,6 @@ a.btn,
 button,
 input[type="submit"] {
     cursor: pointer;
-    padding: 15px 45px;
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -11,6 +10,7 @@ input[type="submit"] {
     color: $yellow;
     box-shadow: 0 6px $pink;
     border: none;
+    border-radius: 0.25rem;
     &:hover {
         box-shadow: 0 4px $pink;
         top: 2px;
@@ -19,4 +19,16 @@ input[type="submit"] {
         box-shadow: 0 0 $pink;
         top: 6px;
     }
+}
+
+a.btn,
+button.btn,
+input[type="submit"] {
+    padding: 15px 45px;
+    margin-bottom: 10px;
+}
+
+button.add-row,
+button.delete-row {
+    padding: 5px 15px;
 }

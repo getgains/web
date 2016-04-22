@@ -13,8 +13,7 @@ input[type="password"] {
     &:focus {
         border-color: $orangeLight;
     }
-}
-
-input::placeholder {
-    color: lighten($orangeLight, 20);
+    &::placeholder {
+        color: lighten($orangeLight, 20);
+    }
 }

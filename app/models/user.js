@@ -8,10 +8,5 @@ export default DS.Model.extend({
     weight: DS.attr('number'),
     email: DS.attr('string'),
     password: DS.attr('password'),
-    workouts: DS.hasMany('workout', {
-        async: true
-    }),
-    exercises: DS.hasMany('exercise', {
-        async: true
-    })
+    workouts: DS.hasMany('workout')
 });

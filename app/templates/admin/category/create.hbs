@@ -1,0 +1,5 @@
+<h2>Create new category</h2>
+<form class="{{if isProcessing 'is--processing'}}" {{action "create" on="submit"}}>
+    {{form-input label="Name" type="text" value=name}}
+    {{form-input type="submit" value="Submit"}} 
+</form>

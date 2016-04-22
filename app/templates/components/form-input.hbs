@@ -1,0 +1,7 @@
+{{#if label}}
+    <label {{bind-attr for=label}}>{{label}}</label>
+{{/if}}
+{{input type=type value=value id=label placeholder=label maxlength=maxlength keyup="update" }}
+{{#if maxlength}}
+	<span class="counter">characters remaining: {{charatersRemaining}}</span>
+{{/if}}

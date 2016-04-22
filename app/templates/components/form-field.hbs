@@ -1,7 +1,0 @@
-{{#if label}}
-    <label {{bind-attr for=label}}>{{label}}</label>
-{{/if}}
-{{input type=type value=value id=label placeholder=label maxlength=maxlength action="update" on="keyup" }}
-{{#if maxlength}}
-	<span class="counter">characters remaining: {{charatersRemaining}}</span>
-{{/if}}

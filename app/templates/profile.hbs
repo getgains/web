@@ -1,13 +1,13 @@
 {{#if isEdit}}
     <h1>Edit Profile</h1>
     <form {{action "save" on="submit"}}>
-        {{form-field label="First Name" type="text" value=session.content.user.firstname}}
-        {{form-field label="Last Name" type="text" value=session.content.user.lastname}}
-        {{form-field label="Email" type="email" value=session.content.user.email}}
-        {{form-field label="Password" type="password" value=password}}
-        {{form-field label="Password Confirm" type="password" value=confirmPassword}}
+        {{form-input label="First Name" type="text" value=session.content.user.firstname}}
+        {{form-input label="Last Name" type="text" value=session.content.user.lastname}}
+        {{form-input label="Email" type="email" value=session.content.user.email}}
+        {{form-input label="Password" type="password" value=password}}
+        {{form-input label="Password Confirm" type="password" value=confirmPassword}}
         <div class="btn-group pull-right" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" {{action "cancel"}}>Cancel</button>
+            <button class="btn" {{action "cancel"}}>Cancel</button>
             {{input type="submit" class="btn btn-danger" value="Submit"}}
         </div>
     </form>
@@ -32,5 +32,5 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" {{action "edit"}}>Edit Profile</button>
+    <button class="btn" {{action "edit"}}>Edit Profile</button>
 {{/if}}

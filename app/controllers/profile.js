@@ -5,12 +5,12 @@ default Ember.Controller.extend({
     isEdit: false,
     updated: 0,
     actions: {
-        edit: function() {
+        edit() {
 
             this.set('isEdit', true);
 
         },
-        save: function() {
+        save() {
 
             this.set('isProcessing', true);
 
@@ -35,7 +35,7 @@ default Ember.Controller.extend({
             });
 
         },
-        cancel: function() {
+        cancel() {
 
             this.set('isEdit', false);
 

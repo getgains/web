@@ -11,9 +11,9 @@ export default function() {
         var data = JSON.parse(request.requestBody);
 
         if (data.email && data.password) {
-            db.Users.insert(data);
+            db.users.insert(data);
             return {
-                users: [db.Users[0]],
+                users: [db.users[0]],
                 token: "PA$$WORD"
             };
         } else {
@@ -64,36 +64,53 @@ export default function() {
         var data = JSON.parse(request.requestBody).data.attributes;
 
         if (data.name) {
-            return db.users.insert(data);
+            return {
+                data: db.users.insert(data)
+            };
         } else {
             return new Mirage.Response(400, { some: 'header' }, { message: 'name cannot be blank' });
         }
     });
     /**
-     * Workouts
+     * Categories
      * @param  {[type]} ) {                   return {            data: [{                type: 'workout',                id: 1,                attributes: {                    name: 'destroyer',                    introduction: 'This is gonna hurt!',                    difficulty: 5                }            }]        };    } [description]
      * @return {[type]}   [description]
      */
-    this.get('api/workouts', function() {
+    this.get('api/categories', function(db, request) {
+
         return {
-            data: [{
-                type: 'workout',
-                id: 1,
-                attributes: {
-                    name: 'destroyer',
-                    introduction: 'This is gonna hurt!',
-                    difficulty: 5
-                }
-            }]
+            data: db.categories
         };
+
     });
 
-    this.post('/api/workouts', function(db, request) {
+    this.get('api/categories/:id', function(db, request) {
 
-        var data = JSON.parse(request.requestBody).data.attributes;
+        var id = request.params.id,
+            category = db.categories.find(id);
 
-        if (data.name) {
-            return db.Workouts.insert(data);
+        if (category) {
+            return {
+                data: category
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+
+    this.post('api/categories', function(db, request) {
+
+        var attrs = JSON.parse(request.requestBody).data;
+
+        if (attrs.attributes.name) {
+            return {
+                data: db.categories.insert(attrs)
+            };
         } else {
             return new Mirage.Response(400, {
                 some: 'header'
@@ -103,18 +120,126 @@ export default function() {
         }
     });
 
-    this.get('api/workouts/:id', function() {
+    this.patch('api/categories/:id', function(db, request) {
+
+        var id = request.params.id,
+            attrs = JSON.parse(request.requestBody).data;
+
+        if (attrs.attributes.name) {
+            return {
+                data: db.categories.update(id, attrs)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+
+    this.delete('api/categories/:id', function(db, request) {
+
+        var id = request.params.id;
+
+        if (id) {
+            return {
+                data: db.categories.remove(id)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+    /**
+     * Workouts
+     * @param  {[type]} ) {                   return {            data: [{                type: 'workout',                id: 1,                attributes: {                    name: 'destroyer',                    introduction: 'This is gonna hurt!',                    difficulty: 5                }            }]        };    } [description]
+     * @return {[type]}   [description]
+     */
+    this.get('api/workouts', function(db, request) {
+
         return {
-            data: {
-                type: 'workout',
-                id: 1,
-                attributes: {
-                    name: 'destroyer',
-                    introduction: 'This is gonna hurt!',
-                    difficulty: 5
-                }
-            }
+            data: db.workouts
         };
+
+    });
+
+    this.get('api/workouts/:id', function(db, request) {
+
+        var id = request.params.id,
+            workout = db.workouts.find(id);
+
+        if (workout) {
+            return {
+                data: workout
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+
+    this.post('/api/workouts', function(db, request) {
+
+        var attrs = JSON.parse(request.requestBody);
+
+        if (attrs.data.attributes.name) {
+            return {
+                data: db.workouts.insert(attrs.data)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+    });
+
+    this.patch('api/workouts/:id', function(db, request) {
+
+        var id = request.params.id;
+        var attrs = JSON.parse(request.requestBody).data;
+
+        if (attrs.attributes.name) {
+            return {
+                data: db.workouts.update(id, attrs)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+
+    this.delete('api/workouts/:id', function(db, request) {
+
+        var id = request.params.id;
+
+        if (id) {
+            return {
+                data: db.workouts.remove(id)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
     });
     /**
      * Exercises
@@ -124,45 +249,23 @@ export default function() {
      * @param  {[type]} options.attributes: {                                                    name: 'EZbar Curl',                                    category: 'Arms'                     }            }]                     }; [description]
      * @return {[type]}                     [description]
      */
-    this.get('api/exercises', function() {
+    this.get('api/exercises', function(db, request) {
+
         return {
-            data: [{
-                type: 'exercise',
-                id: 1,
-                attributes: {
-                    name: 'Dumbbell Curl',
-                    category: 'Arms'
-                }
-            }, {
-                type: 'exercise',
-                id: 2,
-                attributes: {
-                    name: 'EZbar Curl',
-                    category: 'Arms'
-                }
-            }]
+            data: db.exercises
         };
+
     });
 
-    this.get('api/exercises/:id', function() {
-        return {
-            data: {
-                type: 'exercise',
-                id: 1,
-                attributes: {
-                    name: 'Dumbbell Curl',
-                    category: 'Arms'
-                }
-            }
-        };
-    });
+    this.get('api/exercises/:id', function(db, request) {
 
-    this.post('/api/exercises', function(db, request) {
+        var id = request.params.id,
+            exercise = db.exercises.find(id);
 
-        var data = JSON.parse(request.requestBody).data.attributes;
-
-        if (data.name) {
-            return db.Exercises.insert(data);
+        if (exercise) {
+            return {
+                data: exercise
+            };
         } else {
             return new Mirage.Response(400, {
                 some: 'header'
@@ -170,6 +273,61 @@ export default function() {
                 message: 'name cannot be blank'
             });
         }
+
+    });
+
+    this.post('api/exercises', function(db, request) {
+
+        var attrs = JSON.parse(request.requestBody).data;
+
+        if (attrs.attributes.name) {
+            return {
+                data: db.exercises.insert(attrs)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+    });
+
+    this.patch('api/exercises/:id', function(db, request) {
+
+        var id = request.params.id;
+        var attrs = JSON.parse(request.requestBody).data;
+
+        if (attrs.attributes.name) {
+            return {
+                data: db.exercises.update(id, attrs)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
+    });
+
+    this.delete('api/exercises/:id', function(db, request) {
+
+        var id = request.params.id;
+
+        if (id) {
+            return {
+                data: db.exercises.remove(id)
+            };
+        } else {
+            return new Mirage.Response(400, {
+                some: 'header'
+            }, {
+                message: 'name cannot be blank'
+            });
+        }
+
     });
 
 }

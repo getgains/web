@@ -6,7 +6,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     host: ENV.apiBaseUrl,
     namespace: 'api',
     authorizer: 'authorizer:token',
-    handleResponse: function(status, headers, payload) {
+    handleResponse(status, headers, payload) {
         // If the response is 422 (Unprocessable Entity) then format the errors into JSONAPI format
         if (status === 422 && payload.errors) {
             let error_response = [];

@@ -1,0 +1,12 @@
+{{#if errorMessage}}
+  <div class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+{{/if}}
+<form class="{{if isProcessing 'is--processing'}}" {{action "save" model on="submit"}}>
+    {{form-input label="Name" type="text" value=model.name}}
+    <div class="btn-group pull-right" role="group" aria-label="...">
+        <button type="button" class="btn" {{action "cancel"}}>Cancel</button>
+        {{form-input type="submit" value="Save"}}
+    </div>
+</form>

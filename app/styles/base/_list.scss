@@ -1,4 +1,21 @@
-ul {
+ul.list {
     list-style: none;
     padding: 0;
+}
+
+ul.list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    &:nth-child(odd) {
+        background-color: lighten($orange, 30);
+        &:hover {
+            background-color: lighten($orange, 32);
+        }
+    }
+    &:nth-child(even) {
+        background-color: lighten($orange, 45);
+        &:hover {
+            background-color: lighten($orange, 47);
+        }
+    }
 }

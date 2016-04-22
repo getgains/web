@@ -15,18 +15,31 @@ Router.map(function() {
 
     this.route('register');
     this.route('login');
-    this.route("profile");
+    this.route('profile');
 
-    this.route("exercises", function() {
-        this.route("create");
+    this.route('workout', function() {
+        this.route('create');
+        this.route('categories');
+        this.route('exercises', {
+            path: '/categories/:id/exercises'
+        });
         this.route('edit', {
-            path: '/:id'
+            path: '/:workout_id'
         });
     });
-    this.route("workouts", function() {
-        this.route("create");
-        this.route('edit', {
-            path: '/:id'
+
+    this.route('admin', function() {
+        this.route('category', function() {
+            this.route('create');
+            this.route('edit', {
+                path: '/:category_id'
+            });
+        });
+        this.route('exercise', function() {
+            this.route('create');
+            this.route('edit', {
+                path: '/:exercise_id'
+            });
         });
     });
 

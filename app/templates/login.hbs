@@ -5,8 +5,8 @@
     </div>
 {{/if}}
 <form class="{{if isProcessing 'is--processing'}}" {{action "authenticate" on="submit"}}>
-    {{form-field id="identification" type="email" label="Email" value=identification}}
-    {{form-field type="password" label="Password" value=password}}
-    {{form-field type="submit" value=Submit}}
+    {{form-input id="identification" type="email" label="Email" value=identification}}
+    {{form-input type="password" label="Password" value=password}}
+    {{form-input type="submit" value=Submit}}
 </form>
 
