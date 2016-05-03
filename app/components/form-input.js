@@ -9,6 +9,7 @@ export default Ember.Component.extend({
         this.set('charactersRemaining', this.get('maxlength'));
     },
     updateCounter: Ember.observer('value', function() {
+
         if (this.get('maxlength')) {
             let input_max = this.get('maxlength'),
                 input_val = this.get('value'),
@@ -17,5 +18,6 @@ export default Ember.Component.extend({
 
             this.set('charactersRemaining', input_remaining);
         }
+
     })
 });

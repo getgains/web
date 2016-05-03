@@ -34,6 +34,9 @@ default Ember.Controller.extend({
 
             this.set('category', category);
 
+        },
+        deleteRow() {
+            console.log('test');
         }
     }
 });

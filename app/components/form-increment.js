@@ -6,20 +6,16 @@ export default Ember.Component.extend({
     actions: {
         increment() {
 
-            let value = this.get('value');
-            this.set('value', value++);
+            let value = this.get('value') + 1;
+            this.set('value', value);
 
         },
         decrement() {
 
-            let value = this.get('value');
-            this.set('value', value--);
+            let value = this.get('value') - 1;
+            if (value < 0) value = 0;
+            this.set('value', value);
 
         }
-    },
-    onchange: Ember.observer('value', function() {
-
-        console.log('changed');
-
-    })
+    }
 });

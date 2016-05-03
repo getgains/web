@@ -11,4 +11,18 @@ nav ul {}
 
 nav li {
     display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+nav li div.icon {
+    fill: $yellow;
+}
+
+nav li a.active div.icon {
+    fill: white;
+}
+
+nav ul.pull-xs-right {
+    padding: 6px 0;
 }

@@ -26,6 +26,25 @@ module.exports = function(defaults) {
         }
     });
 
+    /**
+     * styles
+     */
+    app.import('bower_components/dragula/dist/dragula.min.css');
+
+    /**
+     * scripts
+     */
+    app.import('bower_components/fastclick/lib/fastclick.js');
+    app.import('bower_components/dragula/dist/dragula.min.js');
+    app.import('vendor/animations/index.js');
+
+    /*
+     * fonts
+     */
+    /*    app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', {
+            destDir: 'fonts'
+        });*/
+
     // Use `app.import` to add additional libraries to the generated
     // output files.
     //

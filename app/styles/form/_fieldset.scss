@@ -3,8 +3,6 @@ fieldset {
 }
 
 fieldset .counter {
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
+    float: right;
     color: $orange;
 }

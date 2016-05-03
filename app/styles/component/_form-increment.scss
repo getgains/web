@@ -1,5 +1,9 @@
 .form-increment {
     display: flex;
+}
+
+.form-increment-control {
+    display: flex;
     padding-bottom: 10px;
 }
 
@@ -27,4 +31,8 @@
 .form-increment button.form-increment-plus {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.form-increment .delete-row {
+    margin-left: auto;
 }

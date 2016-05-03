@@ -1,20 +1,28 @@
 <nav class="navbar">
-    {{#link-to 'index' class="navbar-brand"}}Gains{{/link-to}}
-    <ul class="nav navbar-nav">
-        <li class="nav-item">{{#link-to 'workout'}}Workouts{{/link-to}}</li>
+    <ul class="nav navbar-nav pull-xs-left">
+        <li>
+            {{#link-to 'index' class="navbar-brand"}}Gains{{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'workout'}}
+                {{svg-icon icon='emo-devil' animation='hudoken'}}
+            {{/link-to}}
+        </li>
     </ul>
     <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
+        <li>
             {{#if session.isAuthenticated}}
                 {{#if session.admin}}
                     {{#link-to 'admin'}}admin{{/link-to}}
                 {{/if}}
                 <a class='link' {{action 'invalidateSession'}}>Logout</a>
             {{else}}
-                {{#link-to 'login'}}Login{{/link-to}}
+                {{#link-to 'login'}}
+                    {{svg-icon icon='emo-happy' animation='boom'}}
+                {{/link-to}}
             {{/if}}
         </li>
-        <li class="nav-item">
+        <li>
             {{#if session.isAuthenticated}}
                 {{#link-to 'profile'}}Profile{{/link-to}}
             {{else}}
