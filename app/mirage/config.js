@@ -10,7 +10,7 @@ export default function() {
 
         var data = JSON.parse(request.requestBody);
 
-        if (data.email && data.password) {
+        if(data.email && data.password) {
             db.users.insert(data);
             return {
                 users: [db.users[0]],
@@ -63,12 +63,12 @@ export default function() {
 
         var data = JSON.parse(request.requestBody).data.attributes;
 
-        if (data.name) {
+        if(data.name) {
             return {
                 data: db.users.insert(data)
             };
         } else {
-            return new Mirage.Response(400, { some: 'header' }, { message: 'name cannot be blank' });
+            return new Mirage.Response(400, {some: 'header'}, {message: 'name cannot be blank'});
         }
     });
     /**
@@ -89,7 +89,7 @@ export default function() {
         var id = request.params.id,
             category = db.categories.find(id);
 
-        if (category) {
+        if(category) {
             return {
                 data: category
             };
@@ -107,7 +107,7 @@ export default function() {
 
         var attrs = JSON.parse(request.requestBody).data;
 
-        if (attrs.attributes.name) {
+        if(attrs.attributes.name) {
             return {
                 data: db.categories.insert(attrs)
             };
@@ -125,7 +125,7 @@ export default function() {
         var id = request.params.id,
             attrs = JSON.parse(request.requestBody).data;
 
-        if (attrs.attributes.name) {
+        if(attrs.attributes.name) {
             return {
                 data: db.categories.update(id, attrs)
             };
@@ -143,7 +143,7 @@ export default function() {
 
         var id = request.params.id;
 
-        if (id) {
+        if(id) {
             return {
                 data: db.categories.remove(id)
             };
@@ -174,7 +174,7 @@ export default function() {
         var id = request.params.id,
             workout = db.workouts.find(id);
 
-        if (workout) {
+        if(workout) {
             return {
                 data: workout
             };
@@ -192,7 +192,7 @@ export default function() {
 
         var attrs = JSON.parse(request.requestBody);
 
-        if (attrs.data.attributes.name) {
+        if(attrs.data.attributes.name) {
             return {
                 data: db.workouts.insert(attrs.data)
             };
@@ -210,7 +210,7 @@ export default function() {
         var id = request.params.id;
         var attrs = JSON.parse(request.requestBody).data;
 
-        if (attrs.attributes.name) {
+        if(attrs.attributes.name) {
             return {
                 data: db.workouts.update(id, attrs)
             };
@@ -228,7 +228,7 @@ export default function() {
 
         var id = request.params.id;
 
-        if (id) {
+        if(id) {
             return {
                 data: db.workouts.remove(id)
             };
@@ -262,7 +262,7 @@ export default function() {
         var id = request.params.id,
             exercise = db.exercises.find(id);
 
-        if (exercise) {
+        if(exercise) {
             return {
                 data: exercise
             };
@@ -280,7 +280,7 @@ export default function() {
 
         var attrs = JSON.parse(request.requestBody).data;
 
-        if (attrs.attributes.name) {
+        if(attrs.attributes.name) {
             return {
                 data: db.exercises.insert(attrs)
             };
@@ -298,7 +298,7 @@ export default function() {
         var id = request.params.id;
         var attrs = JSON.parse(request.requestBody).data;
 
-        if (attrs.attributes.name) {
+        if(attrs.attributes.name) {
             return {
                 data: db.exercises.update(id, attrs)
             };
@@ -316,7 +316,7 @@ export default function() {
 
         var id = request.params.id;
 
-        if (id) {
+        if(id) {
             return {
                 data: db.exercises.remove(id)
             };

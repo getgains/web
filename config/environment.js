@@ -5,7 +5,7 @@ module.exports = function(environment) {
         modulePrefix: 'gains',
         environment: environment,
         baseURL: '/',
-        apiBaseUrl: '/',
+        apiBaseUrl: 'http://localhost:1337',
         locationType: 'auto',
         EmberENV: {
             FEATURES: {

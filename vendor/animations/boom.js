@@ -9,7 +9,7 @@ export default function(params) {
         x: '50%',
         y: '50%',
         opacity: 0.6,
-        radius: { 40: 90 },
+        radius: {40: 90},
         count: 6,
         isRunLess: true,
         easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
@@ -19,10 +19,10 @@ export default function(params) {
         parent: params[0],
         duration: 750,
         type: 'circle',
-        radius: { 0: 50 },
+        radius: {0: 50},
         fill: 'transparent',
         stroke: '#988ADE',
-        strokeWidth: { 35: 0 },
+        strokeWidth: {35: 0},
         opacity: 0.6,
         x: '50%',
         y: '50%',
@@ -33,7 +33,7 @@ export default function(params) {
     var tween = new mojs.Tween({
         duration: 1100,
         onUpdate: function(progress) {
-            if (progress > 0.3) {
+            if(progress > 0.3) {
                 var elasticOutProgress = mojs.easing.elastic.out(1.43 * progress - 0.43);
                 params[1].style.WebkitTransform = params[1].style.transform = 'scale3d(' + elasticOutProgress + ',' + elasticOutProgress + ',1)';
             } else {
