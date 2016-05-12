@@ -1,0 +1,10 @@
+input[type="submit"] {
+    transition: color 0.2s;
+}
+
+form.is--processing input[type="submit"] {
+    color: transparent;
+    background-image: url("img/icons/spinner.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,0 +1,16 @@
+textarea {
+    background-color: lighten($orangeLight, 40);
+    display: block;
+    padding: 1em 1em 1.2em;
+    width: 100%;
+    border: none;
+    color: $orange;
+    font-size: 1em;
+    resize: none;
+    &:focus {
+        border-color: $orangeLight;
+    }
+    &::placeholder {
+        color: lighten($orangeLight, 20);
+    }
+}

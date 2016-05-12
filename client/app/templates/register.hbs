@@ -1,0 +1,19 @@
+{{#if registered}}
+    <h1>Registered!</h1>
+    <p>Registration was successful.  You can {{link-to 'now login' 'login'}} with the credentials you registered with.</p>
+{{else}}
+<h1>Register</h1>
+{{#if errorMessage}}
+    <div class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+{{/if}}
+    <form class="{{if isProcessing 'is--processing'}}" {{action "register" on="submit"}}>
+        {{form-input id="firstname" type="text" label="First Name" value=firstname}}
+        {{form-input id="lastname" type="text" label="Last Name" value=lastname}}
+        {{form-input id="identification" type="email" label="Email" value=email}}
+        {{form-input id="password" type="password" label="Password" value=password}}
+        {{form-input id="confirmPassword" type="password" label="Password Confirm" value=confirmPassword}}
+        {{input type="submit" value="Submit"}}
+    </form>
+{{/if}}

@@ -1,0 +1,94 @@
+/**
+ * fonts
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span {
+    @include font-smoothing();
+}
+
+
+/**
+ * headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $ultra;
+    padding: 0;
+    margin: 0;
+    line-height: 1em;
+    text-shadow: none;
+    white-space: normal;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 2.85em;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.778em;
+    padding-bottom: 0.4em;
+}
+
+h3 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+}
+
+h4 {
+    font-size: 1.3em;
+    padding-bottom: 0.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+    padding-bottom: 0.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    line-height: 1em;
+    padding: 0;
+    margin: 0 0 1.667em 0;
+}
+
+span {}
+
+a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+a.link {
+    color: $pink;
+    border-bottom: 1px dotted $pink;
+    &:hover {
+        color: $pinkLight;
+        border-color: $pinkLight;
+    }
+}
+
+blockquote {
+    clear: both;
+}

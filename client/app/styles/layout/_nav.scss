@@ -1,0 +1,28 @@
+.navbar-brand {
+    font-family: $ultra;
+    color: $yellow;
+    font-size: 2.5em;
+    @include font-smoothing();
+}
+
+nav {}
+
+nav ul {}
+
+nav li {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+nav li div.icon {
+    fill: $yellow;
+}
+
+nav li a.active div.icon {
+    fill: white;
+}
+
+nav ul.pull-xs-right {
+    padding: 6px 0;
+}

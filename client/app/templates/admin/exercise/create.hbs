@@ -1,0 +1,11 @@
+<h2>Create new exercise</h2>
+<form class="{{if isProcessing 'is--processing'}}" {{action "create" on="submit"}}>
+    {{form-input label="Name" type="text" value=name}}
+    <select class="form-control" onchange={{action "selectCategory" value="target.value"}}>
+        {{#each model as |category|}}
+            <option value={{category.id}} selected={{eq category category.id}}>{{category.name}}</option>
+        {{/each}}
+    </select>
+    {{form-input type="submit" value="Submit"}}
+    <button type="button" class="btn" {{action "cancel"}}>Cancel</button>
+</form>

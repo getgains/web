@@ -1,0 +1,5 @@
+<ul class="list">
+    {{#each model.exercises as |exercise|}}
+        <li {{action 'addExercise' exercise}}>{{exercise.name}}</li>
+    {{/each}}
+</ul>
