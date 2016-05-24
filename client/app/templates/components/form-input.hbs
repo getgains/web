@@ -1,11 +1,13 @@
 {{#if label}}
     <label {{bind-attr for=label}}>{{label}}</label>
 {{/if}}
-{{#unless (if_eq type 'textarea')}}
-    {{input type=type value=value id=label placeholder=label maxlength=maxlength keyup="update" }}
-{{else}}
+{{#if (if_eq type 'textarea')}}
     {{textarea value=value id=label placeholder=placeholder maxlength=maxlength keyup="update"}}
-{{/unless}}
+{{else if (if_eq type 'select')}}
+    {{form-select label=label options=value match=match}}
+{{else}}
+    {{input type=type value=value id=label placeholder=label maxlength=maxlength keyup="update" }}
+{{/if}}
 {{#if maxlength}}
 	<span class="counter">characters remaining: {{charactersRemaining}}</span>
 {{/if}}

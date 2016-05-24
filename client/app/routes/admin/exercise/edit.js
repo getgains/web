@@ -1,6 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model(params) {
+
+        return {
+            exercise: this.store.findRecord('exercise', params.exercise_id),
+            categories: this.store.findAll('category')
+        };
+
+    },
     actions: {
         error(data, transition) {
 

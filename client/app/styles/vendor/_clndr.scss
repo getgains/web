@@ -1,0 +1,199 @@
+.ember-clndr {
+    margin: 30px auto;
+    max-width: 300px;
+    font-size: 10px;
+    font-family: 'Droid Sans Mono';
+}
+
+.ember-clndr .clndr .clndr-controls {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.ember-clndr .clndr .clndr-controls .month {
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button {
+    float: left;
+    width: 33%;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button.rightalign {
+    width: 34%;
+    text-align: right;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-next-button:hover {
+    background: #ddd;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-next-button.inactive {
+    opacity: 0.5;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-next-button.inactive:hover {
+    background: none;
+    cursor: default;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-previous-button:hover {
+    background: #ddd;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-previous-button.inactive {
+    opacity: 0.5;
+}
+
+.ember-clndr .clndr .clndr-controls .clndr-control-button .clndr-previous-button.inactive:hover {
+    background: none;
+    cursor: default;
+}
+
+.ember-clndr .clndr .clndr-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.ember-clndr .clndr .clndr-table .header-days {
+    height: 30px;
+    background: #0D70A6;
+    font-size: 10px;
+}
+
+.ember-clndr.cal2 .clndr .clndr-table .header-days {
+    height: 30px;
+    background: orange;
+    font-size: 10px;
+}
+
+.ember-clndr .clndr .clndr-table .header-days .header-day {
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ember-clndr .clndr .clndr-table .header-days .header-day:last-child {
+    border-right: 1px solid #000000;
+}
+
+.ember-clndr .clndr .clndr-table tr {
+    height: 40px;
+}
+
+.ember-clndr .clndr .clndr-table tr td {
+    vertical-align: middle;
+}
+
+.ember-clndr .clndr .clndr-table tr .day {
+    width: 100%;
+    height: inherit;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
+
+.ember-clndr .clndr .clndr-table tr .day:hover {
+    background: #eee;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.today,
+.ember-clndr .clndr .clndr-table tr .day.my-today {
+    background: #9AD6E3;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.today:hover,
+.ember-clndr .clndr .clndr-table tr .day.my-today:hover {
+    background: #72c6d8;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.today.event,
+.ember-clndr .clndr .clndr-table tr .day.my-today.event {
+    background: #a7dbc1;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.event,
+.ember-clndr .clndr .clndr-table tr .day.my-event {
+    background: #B4E09F;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.event:hover,
+.ember-clndr .clndr .clndr-table tr .day.my-event:hover {
+    background: #96d478;
+}
+
+.ember-clndr .clndr .clndr-table tr .day.inactive,
+.ember-clndr .clndr .clndr-table tr .day.my-inactive {
+    background: #ddd;
+}
+
+.ember-clndr .clndr .clndr-table tr .day:last-child {
+    border-right: 1px solid #000000;
+}
+
+.ember-clndr .clndr .clndr-table tr .day .day-contents {
+    box-sizing: border-box;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.ember-clndr .clndr .clndr-table tr .empty,
+.ember-clndr .clndr .clndr-table tr .adjacent-month,
+.ember-clndr .clndr .clndr-table tr .my-empty,
+.ember-clndr .clndr .clndr-table tr .my-adjacent-month {
+    width: 100%;
+    height: inherit;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    background: #eee;
+}
+
+.ember-clndr .clndr .clndr-table tr .empty:hover,
+.ember-clndr .clndr .clndr-table tr .adjacent-month:hover,
+.ember-clndr .clndr .clndr-table tr .my-empty:hover,
+.ember-clndr .clndr .clndr-table tr .my-adjacent-month:hover {
+    background: #ddd;
+}
+
+.ember-clndr .clndr .clndr-table tr .empty:last-child,
+.ember-clndr .clndr .clndr-table tr .adjacent-month:last-child,
+.ember-clndr .clndr .clndr-table tr .my-empty:last-child,
+.ember-clndr .clndr .clndr-table tr .my-adjacent-month:last-child {
+    border-right: 1px solid #000000;
+}
+
+.ember-clndr .clndr .clndr-table tr:last-child .day,
+.ember-clndr .clndr .clndr-table tr:last-child .my-day {
+    border-bottom: 1px solid #000000;
+}
+
+.ember-clndr .clndr .clndr-table tr:last-child .empty,
+.ember-clndr .clndr .clndr-table tr:last-child .my-empty {
+    border-bottom: 1px solid #000000;
+}

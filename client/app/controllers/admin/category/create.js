@@ -11,13 +11,13 @@ default Ember.Controller.extend({
             this.set('isProcessing', true);
 
             record.save().then(() => {
-                this.set('isProcessing', false);
                 this.transitionToRoute('admin.category');
             }).catch((error) => {
-                this.set('isProcessing', false);
                 this.set('errorMessage', "Category failed to save." + error);
-                D
+            }).finally(() => {
+                this.set('isProcessing', false);
             });
+
         },
         cancel() {
             this.transitionToRoute('admin.category');

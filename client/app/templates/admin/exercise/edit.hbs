@@ -1,27 +1,16 @@
-<h1>{{model.name}}</h1>
+<h1>{{model.exercise.name}}</h1>
 
-{{#if isEdit}}
-    <form class="{{if isProcessing 'is--processing'}}" {{action "save" model on="submit"}}>
-        {{form-input label="Name" type="text" value=model.name}}
-        {{form-input label="Category" type="select" value=model.category}}
-        <div class="btn-group pull-right" role="group" aria-label="...">
-            <button class="btn" {{action "cancel"}}>Cancel</button>
-            {{input type="submit" value="Submit"}}
-        </div>
-    </form>
-
-    {{#if errorMessage}}
-      <div class="alert alert-danger">
-        {{errorMessage}}
-      </div>
-    {{/if}}
-{{else}}
-    <div class="exercise-edit">
-        <div>{{model.name}}</div>
-        <div>{{model.category}}</div>
-        <div>{{model.createdAt}}</div>
-        {{#if userExercise}}
-            <button class="btn" {{action "edit"}}>Edit Exercise</button>
-        {{/if}}
+<form class="{{if isProcessing 'is--processing'}}" {{action "save" model.exercise on="submit"}}>
+    {{form-input type="text" label="Name" value=model.exercise.name}}
+    {{form-input type="select" label="Choose a category" value=model.categories match=model.exercise.category}}
+    <div class="btn-group pull-right" role="group" aria-label="...">
+        <button class="btn" {{action "cancel"}}>Cancel</button>
+        {{input type="submit" value="Submit"}}
     </div>
+</form>
+
+{{#if errorMessage}}
+  <div class="alert alert-danger">
+    {{errorMessage}}
+  </div>
 {{/if}}

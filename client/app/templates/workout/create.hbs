@@ -4,13 +4,13 @@
   {{form-input label="Notes" type="textarea" value=notes placeholder="Add your notes" maxlength="250"}}
     <div class="list">
       {{#each workout.exercises as |exercise index|}}
-          <h3>{{exercise.name}}</h3>
-        {{!-- {{#each exercise.reps as |rep|}} --}}
-        {{#form-increment id=exercise.name value=0}}
-            <button class="btn delete-row" {{action "deleteRow"}}>-</button>
-        {{/form-increment}}
+        <h3>{{exercise.name}}</h3>
+        {{#each exercise.sets as |set|}}
+          {{#form-increment id=exercise.name value=0}}
+              <button class="btn delete-row" {{action "deleteRow"}}>-</button>
+          {{/form-increment}}
           <button class="btn add-row" {{action "addRow"}}>+</button>
-      {{!-- {{/each}} --}}
+        {{/each}}
       {{/each}}
     </div>
   {{#link-to 'workout.categories' tagName="button" class="btn" }}Add Exercise{{/link-to}}

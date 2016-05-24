@@ -13,27 +13,16 @@ default Ember.Controller.extend({
                 name: this.get('name')
             });
 
-            this.store.findRecord('category', this.get('category')).then((category) => {
+            const category = this.get('category');
 
-                record.set('category', category);
-                record.save().then((exercise) => {
-
-                    category.get('exercises').then((categoryExercises) => {
-
-                        categoryExercises.pushObject(exercise);
-                        category.save().then(() => {
-                            this.set('isProcessing', false);
-                            this.transitionToRoute('admin.exercise');
-                        });
-
-                    });
-
-                }).catch((error) => {
-
-                    this.set('isProcessing', false);
-                    this.set('errorMessage', "Exercise failed to save.");
-
-                });
+            record.set('category', category);
+            record.save().then((exercise) => {
+                category.get('exercises').pushObject(exercise);
+                this.transitionToRoute('admin.exercise');
+            }).catch((error) => {
+                this.set('errorMessage', "Exercise failed to save.");
+            }).finally(() => {
+                this.set('isProcessing', false);
             });
 
         },

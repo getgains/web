@@ -5,16 +5,12 @@ export default Ember.Route.extend({
 
         let controller = this.controllerFor('workout.create');
 
-        console.log(controller.get('workout'));
-
         if (controller.get('workout') !== null) {
             controller.set('name', '');
             controller.set('notes', '');
             controller.get('workout').destroyRecord();
             controller.set('workout', null);
         }
-
-        console.log(controller.get('workout'));
 
     },
     model() {

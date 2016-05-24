@@ -7,8 +7,18 @@ default Ember.Controller.extend({
     actions: {
         addExercise(exercise) {
 
-            let workout = this.get('workout');
+            let record = this.store.createRecord('set', {
+                exercise: exercise,
+                weight: 0,
+                rep: 0,
+                failure: false,
+                assist: false
+            });
+            exercise.get('sets').pushObject(record);
+
+            const workout = this.get('workout');
             workout.get('exercises').pushObject(exercise);
+
             this.transitionToRoute('workout.create');
 
         }

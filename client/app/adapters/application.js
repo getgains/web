@@ -1,8 +1,19 @@
 import DS from 'ember-data';
 import ENV from '../config/environment';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import PouchDB from 'pouchdb';
+import { Adapter } from 'ember-pouch';
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+var remote = new PouchDB('http://localhost:5984/gains');
+var db = new PouchDB('gains');
+
+db.sync(remote, {
+    live: true, // do a live, ongoing sync
+    retry: true // retry if the connection is lost
+});
+
+export default Adapter.extend(DataAdapterMixin, {
+    db: db,
     host: ENV.apiBaseUrl,
     namespace: 'api',
     authorizer: 'authorizer:token',

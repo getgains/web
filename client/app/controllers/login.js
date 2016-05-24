@@ -13,12 +13,11 @@ export default Ember.Controller.extend({
             this.get('session')
                 .authenticate(authenticator, identification, password)
                 .then((message) => {
-                    this.set('isProcessing', false);
                     this.transitionToRoute('index');
-                })
-                .catch((message) => {
-                    this.set('isProcessing', false);
+                }).catch((message) => {
                     this.set('errorMessage', message.error || message);
+                }).finally(() => {
+                    this.set('isProcessing', false);
                 });
 
         }

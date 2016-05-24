@@ -7,12 +7,13 @@ default Ember.Controller.extend({
         save() {
 
             this.set('isProcessing', true);
-            this.model.save().then(() => {
-                this.set('isProcessing', false);
+
+            this.model.exercise.save().then(() => {
                 this.transitionToRoute('admin.exercise');
             }).catch((error) => {
-                this.set('isProcessing', false);
                 this.set('errorMessage', "Exercise update failed." + error);
+            }).finally(() => {
+                this.set('isProcessing', false);
             });
 
         },

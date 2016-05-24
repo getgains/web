@@ -8,11 +8,11 @@ default Ember.Controller.extend({
 
             this.set('isProcessing', true);
             this.model.save().then(() => {
-                this.set('isProcessing', false);
                 this.transitionToRoute('admin.category');
             }).catch((error) => {
-                this.set('isProcessing', false);
                 this.set('errorMessage', "Category update failed." + error);
+            }).finally(() => {
+                this.set('isProcessing', false);
             });
 
         },

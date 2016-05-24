@@ -1,15 +1,18 @@
 import DS from 'ember-data';
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
 
-export default DS.Model.extend({
+const Validations = buildValidations({
+    name: validator('presence', true)
+});
+
+export default DS.Model.extend(Validations, {
+    user: DS.belongsTo('user'),
     name: DS.attr('string'),
     notes: DS.attr('string'),
-    createdAt: DS.attr('string', {
-        defaultValue() {
-            var date = new Date();
-            date = date.toDateString();
-            return date;
-        }
-    }),
-    user: DS.belongsTo('user'),
-    exercises: DS.hasMany('exercise')
+    exercises: DS.hasMany('exercise'),
+    createdAt: DS.attr('date')
 });

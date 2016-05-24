@@ -1,33 +1,29 @@
-<nav class="navbar">
-    <div class="container-fluid">
-        {{#link-to 'index' class="navbar-brand"}}Gains{{/link-to}}
-        <ul class="nav navbar-nav">
+<nav>
+    {{#link-to 'index' class="navbar-brand"}}Gains{{/link-to}}
+    <ul>
+        {{#if session.isAuthenticated}}
+        <li class="nav-item">
+            {{#link-to 'workout' class="nav-link"}}Workouts{{/link-to}}
+        </li>
+        {{/if}}
+        {{#if session.data.authenticated.user.admin}}
+        <li class="nav-item">
+            {{#link-to 'admin' class="nav-link"}}admin{{/link-to}}
+        </li>
+        {{/if}}
+        <li class="nav-item">
             {{#if session.isAuthenticated}}
-                <li class="nav-item">
-                    {{#link-to 'workout' class="nav-link"}}Workouts{{/link-to}}
-                </li>
+                {{#link-to 'profile' class="nav-link"}}Profile{{/link-to}}
+            {{else}}
+                {{#link-to 'register' class="nav-link"}}Register{{/link-to}}
             {{/if}}
-        </ul>
-        <ul class="nav navbar-nav pull-xs-right">
-            {{#if session.data.authenticated.user.admin}}
-            <li class="nav-item">
-                {{#link-to 'admin' class="nav-link"}}admin{{/link-to}}
-            </li>
+        </li>
+        <li class="nav-item">
+            {{#if session.isAuthenticated}}
+                <a class='nav-link' {{action 'invalidateSession'}}>Logout</a>
+            {{else}}
+                {{#link-to 'login' class="nav-link"}}Login{{/link-to}}
             {{/if}}
-            <li class="nav-item">
-                {{#if session.isAuthenticated}}
-                    {{#link-to 'profile' class="nav-link"}}Profile{{/link-to}}
-                {{else}}
-                    {{#link-to 'register' class="nav-link"}}Register{{/link-to}}
-                {{/if}}
-            </li>
-            <li class="nav-item">
-                {{#if session.isAuthenticated}}
-                    <a class='nav-link' {{action 'invalidateSession'}}>Logout</a>
-                {{else}}
-                    {{#link-to 'login' class="nav-link"}}Login{{/link-to}}
-                {{/if}}
-            </li>
-        </ul>
-    </div>
+        </li>
+    </ul>
 </nav>

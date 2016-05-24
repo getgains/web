@@ -13,17 +13,16 @@ App = Ember.Application.extend({
     Resolver
 });
 
-// ServiceWorker is a progressive technology. Ignore unsupported browsers
-/*if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').then(function() {
-        console.log('CLIENT: service worker registration complete.');
-    }, function() {
-        console.log('CLIENT: service worker registration failure.');
-    });
-} else {
-    console.log('CLIENT: service worker not supported.');
-}
-*/
+UpUp.start({
+    'content-url': '/index.html',
+    'assets': [
+        '/assets/gains.css',
+        '/assets/vendor.css',
+        '/assets/gains.js',
+        '/assets/vendor.js'
+    ]
+});
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;

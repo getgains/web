@@ -11,17 +11,17 @@ default Ember.Controller.extend({
 
             this.set('isProcessing', true);
 
-            let workout = this.get('workout');
+            const workout = this.get('workout');
             workout.setProperties({
                 name: this.get('name'),
                 notes: this.get('notes')
             });
             workout.save().then(() => {
-                this.set('isProcessing', false);
                 this.transitionToRoute('workout');
             }).catch((error) => {
-                this.set('isProcessing', false);
                 this.set('errorMessage', "Workout failed to save.");
+            }).finally(() => {
+                this.set('isProcessing', false);
             });
 
         },

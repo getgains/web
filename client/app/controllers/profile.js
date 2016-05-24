@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export
 default Ember.Controller.extend({
+    session: Ember.inject.service('session'),
     isEdit: false,
     updated: 0,
     actions: {
@@ -25,11 +26,11 @@ default Ember.Controller.extend({
                 user.set('weight', this.getProperties('weight'));
 
                 user.save().then(() => {
-                    this.set('isProcessing', false);
                     this.set('updated', 1);
                 }).catch((error) => {
-                    this.set('isProcessing', false);
                     this.set('errorMessage', "Profile update failed.");
+                }).finally(() => {
+                    this.set('isProcessing', false);
                 });
 
             });
